@@ -1,15 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Name:      Linder, Dave
-   Email:     david.lindere@uzh.ch
-   Date:      13.10.19
-   Kurs:      ESC201
-   Semester:  FS19
-   Week:      05
-   Thema:     Simulating the solar system
-   Credits:
-"""
+### 13.10.19, Linder Dave, Simulating the solar system ###
 
 import sys
 import PIL
