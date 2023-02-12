@@ -163,13 +163,13 @@ def two_d_plot(i_days, o_days):
     file_planets = data_folder / "planets.npy"
 
     ### Uncomment if saved location data ###
-    r = np.load(file_sim)
-    planets = np.load(file_planets, allow_pickle=True)
+    # r = np.load(file_sim)
+    # planets = np.load(file_planets, allow_pickle=True)
 
     ### Uncomment if no saved location data or new ones needed ###
-    # r, planets = get_coordinates(o_days)
-    # np.save('file_sim')
-    # np.save(file_planets, planets)
+    r, planets = get_coordinates(o_days)
+    np.save(file_sim, r)
+    np.save(file_planets, planets)
 
     x_inner, y_inner, z_inner = r[:i_days, 0:5, 0], r[:i_days, 0:5, 1], 2 * r[:i_days, 0:5, 2]
     x_outer, y_outer, z_outer = r[:o_days, 5:9, 0], r[:o_days, 5:9, 1], 2 * r[:o_days, 5:9, 2]
@@ -467,7 +467,7 @@ def main():
     ### i_days, o_days: how many days to simulate the inner and outer planets respectively ###
     i_days = 6  # 687 days is one mars-year
     o_days = 601  # 60182 days is one neptune year
-    # two_d_plot(i_days, o_days)
+    two_d_plot(i_days, o_days)
 
     ### uncomment this lines to save an animation in the media folder ###
     # two_d_animation(i_days, o_days)
@@ -476,9 +476,9 @@ def main():
 
 
 if __name__ == "__main__":
-    # main()
+    main()
 
-
+    """
     # 3D plot of the wobbling of the sun
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
@@ -488,3 +488,4 @@ if __name__ == "__main__":
     z = r[:, 0, 2]
     plt.plot(x, y, z)
     plt.show()
+    """
